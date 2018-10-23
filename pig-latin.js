@@ -2,16 +2,11 @@ var myArgs = process.argv.splice(2);
 console.log(pigLatin(myArgs))
 
 function pigLatin(words) {
-  var string = "";
+  var result = [];
   for(var i = 0; i < words.length; i++) {
-    if(i > 0) {
-      string += " ";
-    }
-    for(var j = 1; j < words[i].length; j++) {
-      string += words[i][j];
-    }
-    string += words[i][0];
-    string += "ay";
+    var split = words[i].split('');
+    split.push(split.shift(), "ay");
+    result.push(split.join(''));
   }
-  return string;
+  return result.join(' ');
 }
